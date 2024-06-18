@@ -1,0 +1,81 @@
+{
+    "name": "ttt-elevenlabs",
+    "version": "0.1.0-beta.4",
+    "description": "New and improved typescript package for fetching Eleven Labs API. ",
+    "main": "./dist/cjs/index.js",
+    "module": "./dist/esm/index.js",
+    "types": "./dist/esm/index.d.ts",
+    "typings": "./dist/esm/index.d.ts",
+    "scripts": {
+        "test": "jest --testPathPattern=tests --verbose",
+        "prepublishOnly": "npm run compile",
+        "postpublish": "npm run clean",
+        "dev": "node --inspect -r ts-node/register --watch-path=./src --watch src/test/index.ts",
+        "compile": "npm run clean && npm run compile:esm && npm run compile:cjs",
+        "format": "yarn run lint --fix & prettier --write \"./**/*.{js,jsx,json,tsx,ts}\"",
+        "lint": "eslint . --ext .ts,.tsx",
+        "compile:esm": "tsc",
+        "compile:cjs": "tsc --module commonjs --outDir dist/cjs",
+        "clean": "rimraf dist"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/shivamdevs/elevenlabs-ts.git"
+    },
+    "files": [
+        "dist",
+        "LICENSE",
+        "package.json",
+        "README.md"
+    ],
+    "keywords": [
+        "elevenlabs",
+        "elevenlabs-js",
+        "elevenlabs-ts",
+        "elevenlabs api",
+        "elevenlabs node",
+        "elevenlabsjs",
+        "elevenlabsts",
+        "text to speech nodejs",
+        "text to speech",
+        "text to speech api",
+        "text to speech elevenlabs",
+        "tts",
+        "tts api",
+        "tts nodejs",
+        "tts elevenlabs",
+        "ai elevenlabs",
+        "ai voice",
+        "ai tts api",
+        "ai tts nodejs",
+        "ai voice api",
+        "ai voice nodejs",
+        "voice clone",
+        "voice clone ai"
+    ],
+    "author": "Shivam Dewangan",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/shivamdevs/elevenlabs-ts/issues"
+    },
+    "homepage": "https://github.com/shivamdevs/elevenlabs-ts#readme",
+    "dependencies": {
+        "axios": "^1.7.2"
+    },
+    "peerDependencies": {
+        "@aws-sdk/client-s3": ">=3",
+        "uuid": ">=9"
+    },
+    "devDependencies": {
+        "@jest/globals": "^29.7.0",
+        "@types/node": "^20.14.5",
+        "@types/uuid": "^9.0.8",
+        "@typescript-eslint/eslint-plugin": "^7.13.0",
+        "eslint": "^8.57.0",
+        "jest": "^29.7.0",
+        "prettier": "^3.3.2",
+        "ts-node": "^10.9.2",
+        "tslib": "^2.6.3",
+        "typescript": "^5.4.5"
+    }
+}

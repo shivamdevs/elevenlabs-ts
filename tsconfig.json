@@ -1,0 +1,37 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "esModuleInterop": true,
+        "target": "es6",
+        "rootDir": "src",
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "resolveJsonModule": true,
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "outDir": "dist/esm",
+        "types": [
+            "node"
+        ]
+    },
+    "lib": [
+        "es2015"
+    ],
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist",
+        "src/test",
+        ".vscode",
+        ".temp",
+        "drizzle",
+        "drizzle.config.ts",
+        "drizzle.migrate.ts",
+        "package.json",
+        "package-lock.json",
+        ".eslintrc.json",
+        ".prettierrc.json"
+    ]
+}

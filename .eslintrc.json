@@ -1,0 +1,93 @@
+{
+    "env": {
+        "node": true,
+        "browser": true
+    },
+    "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "prettier"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "rules": {
+        "no-alert": "error",
+        "no-console": [
+            "warn",
+            {
+                "allow": [
+                    "info",
+                    "warn",
+                    "error"
+                ]
+            }
+        ],
+        "camelcase": "error",
+        "id-length": [
+            "error",
+            {
+                "min": 1,
+                "max": 64
+            }
+        ],
+        "jsx-quotes": [
+            "error",
+            "prefer-double"
+        ],
+        "max-lines": [
+            "error",
+            1000
+        ],
+        "no-duplicate-imports": "error",
+        "prefer-arrow-callback": "error",
+        "prefer-template": "error",
+        "prefer-destructuring": "error",
+        "lines-around-comment": [
+            "error",
+            {
+                "beforeLineComment": true,
+                "beforeBlockComment": true,
+                "allowBlockStart": true,
+                "allowClassStart": true,
+                "allowObjectStart": true,
+                "allowArrayStart": true
+            }
+        ],
+        // add new line above return
+        "newline-before-return": "error",
+        // add new line below import
+        "import/newline-after-import": [
+            "error",
+            {
+                "count": 1
+            }
+        ],
+        "@typescript-eslint/ban-types": [
+            "error",
+            {
+                "extendDefaults": true,
+                "types": {
+                    "{}": false
+                }
+            }
+        ]
+    },
+    "plugins": [
+        "@typescript-eslint",
+        "import"
+    ],
+    "settings": {
+        "import/parsers": {
+            "@typescript-eslint/parser": [
+                ".ts",
+                ".tsx"
+            ]
+        },
+        "import/resolver": {
+            "typescript": {
+                "alwaysTryTypes": true,
+                "project": [
+                    "./tsconfig.json"
+                ]
+            }
+        }
+    }
+}
