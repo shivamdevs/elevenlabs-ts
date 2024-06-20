@@ -7,12 +7,12 @@ axios.defaults.baseURL = "https://api.elevenlabs.io/v1";
 
 export default class ElevenLabsAPI {
     #apiKey: string;
-    #defaultVoiceId: string = "21m00Tcm4TlvDq8ikWAM";
+    #defaultVoiceId: string = "O652j0KnFYJNQnSLPj88";
     #baseURL: string = "https://api.elevenlabs.io/v1";
 
     #axios: AxiosInstance;
 
-    constructor(apiKey: string) {
+    constructor(apiKey: string, voice_id?: string) {
         this.#apiKey = apiKey;
 
         this.#axios = axios.create({
@@ -22,6 +22,10 @@ export default class ElevenLabsAPI {
             },
             baseURL: this.#baseURL,
         });
+
+        if (voice_id) {
+            this.#defaultVoiceId = voice_id;
+        }
     }
 
     set apiKey(apiKey: string) {
@@ -44,7 +48,23 @@ export default class ElevenLabsAPI {
         return this.#baseURL;
     }
 
-    async textToSpeech(text: string, voice_id: string = this.#defaultVoiceId) {
+    formatText(text: string, addPause: boolean = true) {
+        if (addPause) {
+            text = text.replace(/\. /g, '.\n" ", " ", " "\n');
+        }
+
+        return text;
+    }
+
+    async textToSpeech(
+        text: string,
+        {
+            voice_id = this.#defaultVoiceId,
+            addPause = true,
+        }: Partial<{ voice_id: string; addPause: boolean }> = {}
+    ) {
+        text = this.formatText(text, addPause);
+
         try {
             const response = await this.#axios.post<TextToSpeechAudio>(
                 `/text-to-speech/${voice_id}/with-timestamps`,

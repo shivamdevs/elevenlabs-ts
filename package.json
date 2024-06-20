@@ -1,6 +1,6 @@
 {
     "name": "ttt-elevenlabs",
-    "version": "0.1.1",
+    "version": "0.1.1-beta.0",
     "description": "New and improved typescript package for fetching Eleven Labs API. ",
     "main": "./dist/cjs/index.js",
     "module": "./dist/esm/index.js",
@@ -10,12 +10,12 @@
         "test": "jest --testPathPattern=tests --verbose",
         "prepublishOnly": "npm run compile",
         "postpublish": "npm run clean",
-        "dev": "node --inspect -r ts-node/register --watch-path=./src --watch src/test/index.ts",
+        "dev": "node --inspect -r ts-node/register --watch-path=./src --watch src/test2/index.ts",
         "compile": "npm run clean && npm run compile:esm && npm run compile:cjs",
         "format": "yarn run lint --fix & prettier --write \"./**/*.{js,jsx,json,tsx,ts}\"",
         "lint": "eslint . --ext .ts,.tsx",
-        "compile:esm": "tsc",
-        "compile:cjs": "tsc --module commonjs --outDir dist/cjs",
+        "compile:esm": "tsc --project tsconfig.build.json",
+        "compile:cjs": "tsc --project tsconfig.build.json --module commonjs --outDir dist/cjs",
         "clean": "rimraf dist"
     },
     "repository": {
@@ -38,8 +38,7 @@
     },
     "homepage": "https://github.com/shivamdevs/elevenlabs-ts#readme",
     "dependencies": {
-        "axios": "^1.7.2",
-        "ttt-elevenlabs": "^0.1.1"
+        "axios": "^1.7.2"
     },
     "peerDependencies": {
         "@aws-sdk/client-s3": ">=3",

@@ -52,16 +52,17 @@ export default class ElevenLabsAudio {
         return this.#buffer;
     }
 
+    s3_key?: string;
+
     putObjectCommand(
         bucket: string,
         key: string = `test`,
-        addName: boolean = true
+        prefix: string = ""
     ) {
+        this.s3_key = `${key}${key.endsWith("/") ? "" : "/"}${prefix ? `${prefix}-` : ""}${this.name}`;
         return new PutObjectCommand({
             Bucket: bucket,
-            Key: addName
-                ? `${key}${key.endsWith("/") ? "" : "/"}${this.name}`
-                : key,
+            Key: this.s3_key,
             Body: this.buffer,
             ContentType: this.mime,
         });
