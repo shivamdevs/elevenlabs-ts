@@ -1,6 +1,6 @@
 {
     "name": "ttt-elevenlabs",
-    "version": "0.1.0-beta.4",
+    "version": "0.1.1",
     "description": "New and improved typescript package for fetching Eleven Labs API. ",
     "main": "./dist/cjs/index.js",
     "module": "./dist/esm/index.js",
@@ -29,29 +29,7 @@
         "README.md"
     ],
     "keywords": [
-        "elevenlabs",
-        "elevenlabs-js",
-        "elevenlabs-ts",
-        "elevenlabs api",
-        "elevenlabs node",
-        "elevenlabsjs",
-        "elevenlabsts",
-        "text to speech nodejs",
-        "text to speech",
-        "text to speech api",
-        "text to speech elevenlabs",
-        "tts",
-        "tts api",
-        "tts nodejs",
-        "tts elevenlabs",
-        "ai elevenlabs",
-        "ai voice",
-        "ai tts api",
-        "ai tts nodejs",
-        "ai voice api",
-        "ai voice nodejs",
-        "voice clone",
-        "voice clone ai"
+        "ttt-elevenlabs"
     ],
     "author": "Shivam Dewangan",
     "license": "MIT",
@@ -60,7 +38,8 @@
     },
     "homepage": "https://github.com/shivamdevs/elevenlabs-ts#readme",
     "dependencies": {
-        "axios": "^1.7.2"
+        "axios": "^1.7.2",
+        "ttt-elevenlabs": "^0.1.1"
     },
     "peerDependencies": {
         "@aws-sdk/client-s3": ">=3",

@@ -1,15 +1,26 @@
 {
     "compilerOptions": {
-        "module": "commonjs",
+        "module": "ESNext",
+        "lib": [
+            "ESNext",
+            "DOM"
+        ],
+        "importHelpers": true,
+        "declaration": true,
+        "rootDir": "src",
+        "outDir": "dist/esm",
+        "strict": true,
         "esModuleInterop": true,
         "target": "es6",
-        "rootDir": "src",
-        "strict": true,
         "forceConsistentCasingInFileNames": true,
         "resolveJsonModule": true,
         "moduleResolution": "node",
         "sourceMap": true,
-        "outDir": "dist/esm",
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "skipLibCheck": true,
         "types": [
             "node"
         ]
@@ -18,17 +29,13 @@
         "es2015"
     ],
     "include": [
-        "src/**/*"
+        "src"
     ],
     "exclude": [
         "node_modules",
         "dist",
         "src/test",
         ".vscode",
-        ".temp",
-        "drizzle",
-        "drizzle.config.ts",
-        "drizzle.migrate.ts",
         "package.json",
         "package-lock.json",
         ".eslintrc.json",
